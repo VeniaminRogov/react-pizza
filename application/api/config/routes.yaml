@@ -1,0 +1,11 @@
+controllers:
+    resource:
+        prefix: /api/
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
+
+users:
+    path: /api/users
+    controller: App\Controller\UserController::users
+    methods: GET
