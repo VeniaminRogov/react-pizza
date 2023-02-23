@@ -5,7 +5,7 @@ controllers:
         namespace: App\Controller
     type: attribute
 
-users:
-    path: /api/users
-    controller: App\Controller\UserController::users
+pizzas:
+    path: /api/pizzas
+    controller: App\Controller\PizzasController::pizzas
     methods: GET
