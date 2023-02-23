@@ -1,10 +1,21 @@
 import React from 'react';
 
 function Sort() {
+    const sorts = ['популярности', 'цене', 'алфавиту'];
+
+    const [isSortActive, setIsSortActive] = React.useState(false);
+    const [sortSelected, setSortSelected] = React.useState(0);
+
+    const onClickSelected = (selected) => {
+        setSortSelected(selected);
+        setIsSortActive(false);
+    };
+
     return (
         <div className="sort">
             <div className="sort__label">
                 <svg
+                    className={isSortActive ? 'rotate' : ''}
                     width="10"
                     height="6"
                     viewBox="0 0 10 6"
@@ -17,15 +28,23 @@ function Sort() {
                     />
                 </svg>
                 <b>Сортировка по:</b>
-                <span>популярности</span>
+                <span onClick={() => setIsSortActive(!isSortActive)}>{sorts[sortSelected]}</span>
             </div>
-            <div className="sort__popup">
-                <ul>
-                    <li className="active">популярности</li>
-                    <li>цене</li>
-                    <li>алфавиту</li>
-                </ul>
-            </div>
+            {isSortActive && (
+                <div className="sort__popup">
+                    <ul>
+                        {sorts.map((sort, index) => (
+                            <li
+                                key={index}
+                                onClick={() => onClickSelected(index)}
+                                className={sortSelected === index ? 'active' : ''}
+                            >
+                                {sort}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            )}
         </div>
     );
 }
