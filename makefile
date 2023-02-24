@@ -33,5 +33,8 @@ restart: down start
 logs:
 	@$(DOCKER_COMPOSE) logs --tail=all --follow
 
-sh:
+api-sh:
 	@$(DOCKER_COMPOSE) exec php-fpm sh
+
+node-sh:
+	@$(DOCKER_COMPOSE) exec node sh
