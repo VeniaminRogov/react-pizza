@@ -40,5 +40,5 @@ function App() {
         </div>
     );
 }
-// PizzaBlock
+
 export default App;
