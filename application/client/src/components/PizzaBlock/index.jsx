@@ -1,6 +1,6 @@
 import React from 'react';
 
-function PizzaBlock({ pizza }) {
+function PizzaBlock(pizza) {
     const pizzaTypes = ['тонкое', 'традиционное'];
 
     const [pizzaCount, setPizzaCount] = React.useState(0);
@@ -17,13 +17,13 @@ function PizzaBlock({ pizza }) {
             <h4 className="pizza-block__title">{pizza.title}</h4>
             <div className="pizza-block__selector">
                 <ul>
-                    {pizza.types.map((type) => (
+                    {pizza.types.map((type, index) => (
                         <li
-                            key={type}
-                            onClick={() => setPizzaType(type)}
-                            className={pizzaType === type ? 'active' : ''}
+                            key={index}
+                            onClick={() => setPizzaType(index)}
+                            className={pizzaType === index ? 'active' : ''}
                         >
-                            {pizzaTypes[type]}
+                            {pizzaTypes[index]}
                         </li>
                     ))}
                 </ul>
