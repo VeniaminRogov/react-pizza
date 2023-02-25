@@ -18,6 +18,9 @@
 
         b {
             margin-right: 8px;
+            @media (max-width: 410px) {
+                display: none;
+            }
         }
 
         span {
@@ -55,5 +58,10 @@
                 }
             }
         }
+    }
+
+    @media (max-width: 1300px) {
+        margin-top: 20px;
+        padding-left: 20px;
     }
 }
